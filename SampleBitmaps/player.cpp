@@ -64,3 +64,21 @@ void player::MoveRight(int WIDTH)
 	if(x > WIDTH-boundx)
 		x = WIDTH-boundx;
 }
+
+void player::CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY) {
+	
+	for (int j = 0; j < cSize; j++)
+	{
+		if (BadGuys[j].getLive())
+		{
+			if (x > (BadGuys[j].getX() - BadGuys[j].getBoundX()) &&
+				x < (BadGuys[j].getX() + BadGuys[j].getBoundX()) &&
+				y >(BadGuys[j].getY() - BadGuys[j].getBoundY()) &&
+				y < (BadGuys[j].getY() + BadGuys[j].getBoundY()))
+			{
+				x = prevX;
+				y = prevY;
+			}
+		}
+	}
+}

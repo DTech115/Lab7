@@ -62,6 +62,9 @@ int main(void)
 
 		if(ev.type == ALLEGRO_EVENT_TIMER)
 		{
+			float prevX = myPlayer.getX();
+			float prevY = myPlayer.getY();
+
 			redraw = true;
 			if(keys[UP])
 				myPlayer.MoveUp();
@@ -74,8 +77,11 @@ int main(void)
 
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Updateweapon(WIDTH);
-			for(int i=0;i<NUM_BadGuyS;i++)
-				BadGuys[i].StartBadGuy(WIDTH,HEIGHT);
+			for (int i = 0; i < NUM_BadGuyS; i++) {
+				//check player collisions
+				BadGuys[i].StartBadGuy(WIDTH, HEIGHT);
+				myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY);
+			}
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Collideweapon(BadGuys, NUM_BadGuyS);
 
@@ -142,9 +148,10 @@ int main(void)
 			myPlayer.DrawPlayer();
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Drawweapon();
-			for(int i=0;i<NUM_BadGuyS;i++)
+			for (int i = 0; i < NUM_BadGuyS; i++) {
 				BadGuys[i].DrawBadGuy();
-
+			
+			}
 			al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
 		}

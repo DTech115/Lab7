@@ -2,6 +2,7 @@
 #define PLAYERH
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
+#include "BadGuy.h"
 
 class player
 {
@@ -17,6 +18,9 @@ public:
 	int getBoundY(){return boundy;}
 	int getX(){return x;}
 	int getY(){return y;}
+
+	void CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY);
+	
 private:
 	int x;
 	int y;
