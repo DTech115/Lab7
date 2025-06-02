@@ -6,15 +6,10 @@
 #include "weapon.h"
 
 
-
-
-
 int main(void)
 {
-
-
-	const int WIDTH = 800;
-	const int HEIGHT = 400;
+	const int WIDTH = 600;
+	const int HEIGHT = 800;
 	const int NUM_weapons = 5;
 	const int NUM_BadGuyS = 5;
 	enum KEYS{UP, DOWN, LEFT, RIGHT, SPACE};
