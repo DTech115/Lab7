@@ -37,24 +37,39 @@ void BadGuy::DrawBadGuy()
 	}
 
 }
-void BadGuy::StartBadGuy(int WIDTH, int HEIGHT )
+void BadGuy::StartBadGuy(int WIDTH, int HEIGHT, BadGuy* BadGuys, int numBadGuys)
 {
+	if (!live) {
+		if (rand() % 500 == 0) {
 
-	if(!live)
-	{
-		if(rand() % 500 == 0)
-		{
-			live = true;
-			do{
-				x =  rand() % (WIDTH - boundx); 
-			}while (x <100);
-			do{
-				y =  rand() % (HEIGHT - boundy);
-			}while (y<100);
+			while (true) {
 
+				bool collision = false;
+
+				int newX = rand() % (WIDTH - boundx);
+				int newY = rand() % (HEIGHT - boundy);
+
+				for (int i = 0; i < numBadGuys; i++) {
+					int secondX = BadGuys[i].x;
+					int secondY = BadGuys[i].y;
+
+					if (abs(newX - secondX) < boundx && abs(newY - secondY) < boundy) {
+						collision = true;
+						break;
+					}
+				}
+
+				if (!collision) {
+					x = newX;
+					y = newY;
+					live = true;
+					break;
+				}
+			}
 		}
 	}
 }
+
 
 void BadGuy::CollideSelf(BadGuy BadGuys) {
 	if (BadGuys.getLive())

@@ -79,13 +79,13 @@ int main(void)
 				myPlayer.MoveRight(WIDTH);
 			}
 
+			myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY);
+
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Updateweapon(WIDTH, HEIGHT);
 
 			for (int i = 0; i < NUM_BadGuyS; i++) {
-				//check player collisions
-				BadGuys[i].StartBadGuy(WIDTH, HEIGHT);
-				myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY);
+				BadGuys[i].StartBadGuy(WIDTH, HEIGHT, BadGuys, NUM_BadGuyS);
 			}
 
 			for(int i=0;i<NUM_weapons;i++)
