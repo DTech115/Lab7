@@ -8,8 +8,8 @@ public:
 	weapon();
 	~weapon();
 	void Drawweapon();
-	void Fireweapon(player &Player);
-	void Updateweapon(int WIDTH);
+	void Fireweapon(player &Player, int direction); //takes direction now
+	void Updateweapon(int WIDTH, int HEIGHT); // now takes the height for proper aim
 	void Collideweapon(BadGuy BadGuys[], int cSize);
 private:
 	int x;
@@ -18,6 +18,7 @@ private:
 	int boundy;
 	bool live;
 	int speed;
+	int dir;
 	float angle;
 	ALLEGRO_BITMAP *image;
 };

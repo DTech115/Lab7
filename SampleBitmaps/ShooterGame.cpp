@@ -8,8 +8,8 @@
 
 int main(void)
 {
-	const int WIDTH = 400;
-	const int HEIGHT = 400;
+	const int WIDTH = 600;
+	const int HEIGHT = 800;
 	const int NUM_weapons = 5;
 	const int NUM_BadGuyS = 5;
 	enum KEYS{UP, DOWN, LEFT, RIGHT, SPACE};
@@ -19,7 +19,7 @@ int main(void)
 	bool done = false;
 	bool redraw = true;
 	const int FPS = 60;
-
+	int dir = 0;
 
 	//Allegro variables
 	ALLEGRO_DISPLAY *display = NULL;
@@ -66,17 +66,21 @@ int main(void)
 			float prevY = myPlayer.getY();
 
 			redraw = true;
-			if(keys[UP])
+			if (keys[UP]) {
 				myPlayer.MoveUp();
-			if(keys[DOWN])
+			}
+			if (keys[DOWN]) {
 				myPlayer.MoveDown(HEIGHT);
-			if(keys[LEFT])
+			}
+			if (keys[LEFT]) {
 				myPlayer.MoveLeft();
-			if(keys[RIGHT])
+			}
+			if (keys[RIGHT]) {
 				myPlayer.MoveRight(WIDTH);
+			}
 
 			for(int i=0;i<NUM_weapons;i++)
-				weapons[i].Updateweapon(WIDTH);
+				weapons[i].Updateweapon(WIDTH, HEIGHT);
 
 			for (int i = 0; i < NUM_BadGuyS; i++) {
 				//check player collisions
@@ -94,6 +98,7 @@ int main(void)
 		}
 		else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
 		{
+
 			switch(ev.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -101,20 +106,24 @@ int main(void)
 				break;
 			case ALLEGRO_KEY_UP:
 				keys[UP] = true;
+				dir = 0;
 				break;
 			case ALLEGRO_KEY_DOWN:
 				keys[DOWN] = true;
+				dir = 1;
 				break;
 			case ALLEGRO_KEY_LEFT:
 				keys[LEFT] = true;
+				dir = 2;
 				break;
 			case ALLEGRO_KEY_RIGHT:
 				keys[RIGHT] = true;
+				dir = 3;
 				break;
 			case ALLEGRO_KEY_SPACE:
 				keys[SPACE] = true;
 				for(int i=0;i<NUM_weapons;i++)
-					weapons[i].Fireweapon(myPlayer);
+					weapons[i].Fireweapon(myPlayer, dir);
 				break;
 			}
 		}
