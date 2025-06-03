@@ -8,8 +8,8 @@
 
 int main(void)
 {
-	const int WIDTH = 600;
-	const int HEIGHT = 800;
+	const int WIDTH = 400;
+	const int HEIGHT = 400;
 	const int NUM_weapons = 5;
 	const int NUM_BadGuyS = 5;
 	enum KEYS{UP, DOWN, LEFT, RIGHT, SPACE};
@@ -77,11 +77,13 @@ int main(void)
 
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Updateweapon(WIDTH);
+
 			for (int i = 0; i < NUM_BadGuyS; i++) {
 				//check player collisions
 				BadGuys[i].StartBadGuy(WIDTH, HEIGHT);
 				myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY);
 			}
+
 			for(int i=0;i<NUM_weapons;i++)
 				weapons[i].Collideweapon(BadGuys, NUM_BadGuyS);
 

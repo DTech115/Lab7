@@ -55,3 +55,17 @@ void BadGuy::StartBadGuy(int WIDTH, int HEIGHT )
 	}
 }
 
+void BadGuy::CollideSelf(BadGuy BadGuys) {
+	if (BadGuys.getLive())
+	{
+		if (x > (BadGuys.getX() - BadGuys.getBoundX()) &&
+			x < (BadGuys.getX() + BadGuys.getBoundX()) &&
+			y >(BadGuys.getY() - BadGuys.getBoundY()) &&
+			y < (BadGuys.getY() + BadGuys.getBoundY()))
+		{
+			live = false;
+		}
+	}
+}
+
+

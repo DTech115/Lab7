@@ -9,13 +9,16 @@ public:
 	BadGuy();
 	~BadGuy();
 	void DrawBadGuy();
-	void StartBadGuy(int WIDTH, int HEIGHT );
+	void StartBadGuy(int WIDTH, int HEIGHT);
 	int getBoundX(){return boundx;}
 	int getBoundY(){return boundy;}
 	int getX(){return x;}
 	int getY(){return y;}
 	bool getLive() {return live;}
 	void setLive(bool l){live=l;}
+
+	void CollideSelf(BadGuy BadGuys);
+
 private:
 	int x;
 	int y;
