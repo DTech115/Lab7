@@ -35,8 +35,8 @@ weapon::weapon()
 
 
 	speed = 7;
-	boundx = al_get_bitmap_width(image)/2;
-	boundy = al_get_bitmap_height(image)/2;
+	boundx = al_get_bitmap_width(image)/3;
+	boundy = al_get_bitmap_height(image)/3;
 	live=false;
 	angle=0;
 

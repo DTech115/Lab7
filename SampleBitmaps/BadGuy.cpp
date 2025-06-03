@@ -23,7 +23,7 @@ BadGuy::BadGuy()
 	al_draw_filled_triangle(34, 25, 27, 40, 41, 40, al_map_rgb(255, 255, 0)); //triangle on cover
 
 	boundx = al_get_bitmap_width(image)*.75;
-	boundy = al_get_bitmap_height(image)*.75;
+	boundy = al_get_bitmap_height(image)*.90;
 	live = false;
 
 }
