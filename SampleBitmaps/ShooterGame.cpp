@@ -19,7 +19,7 @@ int main(void)
 	bool done = false;
 	bool redraw = true;
 	const int FPS = 60;
-	int dir = 0;
+	int dir = 0; //this way direction is never forgotten
 
 	//Allegro variables
 	ALLEGRO_DISPLAY *display = NULL;

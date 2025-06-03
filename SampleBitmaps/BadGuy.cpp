@@ -16,11 +16,12 @@ BadGuy::BadGuy()
 	x = 0;
 	y = 0;
 
-	al_draw_filled_rectangle(25,10,39,54,al_map_rgb(100, 100, 120));
-	al_draw_filled_ellipse(32,32,32,16,al_map_rgb(255, 0, 255));
-	al_draw_filled_circle(32,32,4,al_map_rgb(255, 255, 255));
-	al_draw_filled_circle(16,32,4,al_map_rgb(120, 255, 255));
-	al_draw_filled_circle(48,32,4,al_map_rgb(255, 255, 120));
+	al_draw_filled_rectangle(12, 8, 50, 56, al_map_rgb(128, 0, 128)); //background book
+	al_draw_line(20, 8, 20, 56, al_map_rgb(64, 0, 64), 3); //spine indent
+	al_draw_line(12, 56, 50, 56, al_map_rgb(255, 255, 200), 4); //pageline
+	al_draw_filled_rectangle(23, 15, 45, 46, al_map_rgb(25, 9, 68)); //cover square
+	al_draw_filled_triangle(34, 25, 27, 40, 41, 40, al_map_rgb(255, 255, 0)); //triangle on cover
+
 	boundx = al_get_bitmap_width(image)*.75;
 	boundy = al_get_bitmap_height(image)*.75;
 	live = false;
