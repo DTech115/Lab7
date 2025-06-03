@@ -14,21 +14,18 @@ public:
 	void MoveDown(int HEIGHT);
 	void MoveLeft();
 	void MoveRight(int WIDTH);
-	
-	int getDirection();
-
 	int getBoundX(){return boundx;}
 	int getBoundY(){return boundy;}
 	int getX(){return x;}
 	int getY(){return y;}
 
-	void CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY);
+	void CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY); //new collision checker that tkaes the badguys & compares coords
 	
 private:
 	int x;
 	int y;
 	int speed;
-	int dir;
+	int dir; //dir variable added back
 	int boundx;
 	int boundy;
 	ALLEGRO_BITMAP *image;

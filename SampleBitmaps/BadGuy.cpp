@@ -16,6 +16,9 @@ BadGuy::BadGuy()
 	x = 0;
 	y = 0;
 
+
+	//		new custom enemy sprite of a cursed book :D
+
 	al_draw_filled_rectangle(12, 8, 50, 56, al_map_rgb(128, 0, 128)); //background book
 	al_draw_line(20, 8, 20, 56, al_map_rgb(64, 0, 64), 3); //spine indent
 	al_draw_line(12, 56, 50, 56, al_map_rgb(255, 255, 200), 4); //pageline
@@ -29,19 +32,24 @@ BadGuy::BadGuy()
 }
 void BadGuy::DrawBadGuy()
 {
-
-
 	if(live)
 	{
 		al_draw_bitmap(image,x,y,0);
 	}
 
 }
+
+//now takes said badguy object pointer & the number of them to check collisions
 void BadGuy::StartBadGuy(int WIDTH, int HEIGHT, BadGuy* BadGuys, int numBadGuys)
 {
 	if (!live) {
 		if (rand() % 500 == 0) {
 
+			// while it hasn't been broken from, this creates the potential bad guy coords.
+			// it then grabs each other bad guy in existence's coords & saves them, checking each one against the 
+			// new potential coords. If there's no colission, it sets the coords to the new potential coords & alles gut.
+			// if there is a coordinate overlap, we set colission to true & exit the for loop checker, essentially ignoring
+			// the new coords & looping back around until it works. I had the most trouble getting this to work.
 			while (true) {
 
 				bool collision = false;
@@ -66,20 +74,6 @@ void BadGuy::StartBadGuy(int WIDTH, int HEIGHT, BadGuy* BadGuys, int numBadGuys)
 					break;
 				}
 			}
-		}
-	}
-}
-
-
-void BadGuy::CollideSelf(BadGuy BadGuys) {
-	if (BadGuys.getLive())
-	{
-		if (x > (BadGuys.getX() - BadGuys.getBoundX()) &&
-			x < (BadGuys.getX() + BadGuys.getBoundX()) &&
-			y >(BadGuys.getY() - BadGuys.getBoundY()) &&
-			y < (BadGuys.getY() + BadGuys.getBoundY()))
-		{
-			live = false;
 		}
 	}
 }

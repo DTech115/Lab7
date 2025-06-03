@@ -18,6 +18,7 @@ player::player(int HEIGHT)
 	al_set_target_bitmap(image);
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 
+	//			custom sprite added from prev labs :D
 
 	int px = 32;
 	int py = 32;
@@ -68,13 +69,15 @@ player::player(int HEIGHT)
 	y = HEIGHT / 2;
 
 	speed = 7;
-	dir = 0;
+	dir = 0; //direction is now initialized to face up
 	boundx = al_get_bitmap_width(image);
 	boundy = al_get_bitmap_height(image);
 
 }
 void player::DrawPlayer()
 {
+	//depending on the direction, the yin yang will be displayed in the proper direction
+	//main sprite will flip accordingly too
 	if (dir == 0) {
 		al_draw_filled_circle(x + 32, y - 10, 7, al_map_rgb(255, 255, 255)); // white back circle
 
@@ -120,6 +123,8 @@ void player::DrawPlayer()
 		al_draw_bitmap(image, x, y, 0);
 	}
 }
+
+//all of these now set the direction to the appropriate number
 void player::MoveUp()
 {
 	dir = 0;
@@ -149,6 +154,7 @@ void player::MoveRight(int WIDTH)
 		x = WIDTH-boundx;
 }
 
+//assuming a given bad guy is alive, check if the coords overlap & move back one pixel-ish if so
 void player::CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY) {
 	
 	for (int j = 0; j < cSize; j++)
@@ -165,8 +171,4 @@ void player::CollidePlayer(BadGuy BadGuys[], int cSize, int prevX, int prevY) {
 			}
 		}
 	}
-}
-
-int player::getDirection() {
-	return dir;
 }

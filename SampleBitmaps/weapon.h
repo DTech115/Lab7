@@ -8,7 +8,7 @@ public:
 	weapon();
 	~weapon();
 	void Drawweapon();
-	void Fireweapon(player &Player, int direction); //takes direction now
+	void Fireweapon(player &Player, int direction); //takes direction now to set later
 	void Updateweapon(int WIDTH, int HEIGHT); // now takes the height for proper aim
 	void Collideweapon(BadGuy BadGuys[], int cSize);
 private:
@@ -18,7 +18,7 @@ private:
 	int boundy;
 	bool live;
 	int speed;
-	int dir;
+	int dir; //also has direction again
 	float angle;
 	ALLEGRO_BITMAP *image;
 };

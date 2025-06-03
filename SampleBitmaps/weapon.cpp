@@ -21,6 +21,7 @@ weapon::weapon()
 	al_set_target_bitmap(image);
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 
+	//			custom weapon sprite from prev labs added :D
 
 	al_draw_filled_circle(32, 32, 14, al_map_rgb(255, 255, 255)); // white back circle
 
@@ -49,6 +50,8 @@ void weapon::Drawweapon()
 		angle+=.1;
 	}
 }
+
+// takes direction as an arg in order to set the class's dir properly. doubles as a setter
 void weapon::Fireweapon( player &Player, int direction)
 {
 	if(!live)
@@ -59,6 +62,8 @@ void weapon::Fireweapon( player &Player, int direction)
 		dir = direction;
 	}
 }
+
+//now takes height in order to properly move & remove the weapon in motion
 void weapon::Updateweapon(int WIDTH, int HEIGHT)
 {
 	if(live)

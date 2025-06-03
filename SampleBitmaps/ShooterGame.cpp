@@ -62,6 +62,7 @@ int main(void)
 
 		if(ev.type == ALLEGRO_EVENT_TIMER)
 		{
+			//remember coordinates before collision
 			float prevX = myPlayer.getX();
 			float prevY = myPlayer.getY();
 
@@ -79,13 +80,13 @@ int main(void)
 				myPlayer.MoveRight(WIDTH);
 			}
 
-			myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY);
+			myPlayer.CollidePlayer(BadGuys, NUM_BadGuyS, prevX, prevY); //check if player has collided
 
 			for(int i=0;i<NUM_weapons;i++)
-				weapons[i].Updateweapon(WIDTH, HEIGHT);
+				weapons[i].Updateweapon(WIDTH, HEIGHT); //now takes HEIGHT as well for vertical shooting
 
 			for (int i = 0; i < NUM_BadGuyS; i++) {
-				BadGuys[i].StartBadGuy(WIDTH, HEIGHT, BadGuys, NUM_BadGuyS);
+				BadGuys[i].StartBadGuy(WIDTH, HEIGHT, BadGuys, NUM_BadGuyS); //now takes bad guys in to check for spawni colissions
 			}
 
 			for(int i=0;i<NUM_weapons;i++)
@@ -98,7 +99,7 @@ int main(void)
 		}
 		else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
 		{
-
+			//each of these saves the appropriate direction to know where to shoot later
 			switch(ev.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -123,7 +124,7 @@ int main(void)
 			case ALLEGRO_KEY_SPACE:
 				keys[SPACE] = true;
 				for(int i=0;i<NUM_weapons;i++)
-					weapons[i].Fireweapon(myPlayer, dir);
+					weapons[i].Fireweapon(myPlayer, dir); //sets the appropriate direction in the weapon class
 				break;
 			}
 		}

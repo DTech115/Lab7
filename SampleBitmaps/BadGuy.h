@@ -9,15 +9,13 @@ public:
 	BadGuy();
 	~BadGuy();
 	void DrawBadGuy();
-	void StartBadGuy(int WIDTH, int HEIGHT, BadGuy* BadGuys, int numBadGuys);
+	void StartBadGuy(int WIDTH, int HEIGHT, BadGuy* BadGuys, int numBadGuys); //now takes a pointer to a badguy object + the num of them for colission spawning
 	int getBoundX(){return boundx;}
 	int getBoundY(){return boundy;}
 	int getX(){return x;}
 	int getY(){return y;}
 	bool getLive() {return live;}
 	void setLive(bool l){live=l;}
-
-	void CollideSelf(BadGuy BadGuys);
 
 private:
 	int x;
