@@ -20,13 +20,16 @@ weapon::weapon()
 
 	al_set_target_bitmap(image);
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-	al_draw_filled_rectangle(0,25,64,39,al_map_rgb(0, 255, 255));
-	al_draw_filled_rectangle(25,0,39,64,al_map_rgb(0, 255, 255));		
-	al_draw_circle(32,32,8,al_map_rgb(100, 100, 100),5);
 
-	al_draw_line(0,32,64,32,al_map_rgb(100, 100, 255),2);
-	al_draw_line(32,0,32,64,al_map_rgb(100, 100, 255),2);
-	al_draw_circle(32,32,16,al_map_rgb(200, 200, 200),5);
+
+	al_draw_filled_circle(32, 32, 14, al_map_rgb(255, 255, 255)); // white back circle
+
+	al_draw_filled_circle(32, 32 - 6, 8, al_map_rgb(255, 0, 0));
+	al_draw_filled_triangle(32 - 16, 32 + 2, 32 - 10, 32 - 12, 32, 32 - 8, al_map_rgb(255, 0, 0));
+	al_draw_line(32 - 10, 32 - 10, 32, 32 - 10, al_map_rgb(255, 0, 0), 2);
+	al_draw_filled_circle(32, 32 - 8, 2, al_map_rgb(255, 255, 255)); //white eye
+	al_draw_filled_circle(32 - 6, 32 + 6, 2, al_map_rgb(255, 0, 0)); //red eye
+
 	x = 0;
 	y = 0;
 
