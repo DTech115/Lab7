@@ -109,6 +109,14 @@ void player::DrawPlayer()
 		al_draw_bitmap(image, x, y, ALLEGRO_FLIP_HORIZONTAL);
 	}
 	else {
+		al_draw_filled_circle(x + 74, y + 32, 7, al_map_rgb(255, 255, 255)); // white back circle
+
+		al_draw_filled_circle(x + 71, y + 32, 4, al_map_rgb(255, 0, 0));
+		al_draw_filled_triangle(x + 75, y + 24, x + 68, y + 27, x + 70, y + 32, al_map_rgb(255, 0, 0));
+		al_draw_line(x + 69, y + 27, x + 67, y + 30, al_map_rgb(255, 0, 0), 1);
+		al_draw_filled_circle(x + 70, y + 32, 1, al_map_rgb(255, 255, 255)); //white eye
+		al_draw_filled_circle(x + 77, y + 29, 1, al_map_rgb(255, 0, 0)); //red eye
+
 		al_draw_bitmap(image, x, y, 0);
 	}
 }
