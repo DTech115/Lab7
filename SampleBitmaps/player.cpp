@@ -62,6 +62,8 @@ player::player(int HEIGHT)
 	al_draw_filled_rectangle(px - 28, py, px - 30, py + 5, al_map_rgb(255, 255, 255));
 	al_draw_filled_rectangle(px - 30, py + 5, px - 32, py + 10, al_map_rgb(255, 255, 255));
 
+	
+
 	x = 20;
 	y = HEIGHT / 2;
 
@@ -73,18 +75,42 @@ player::player(int HEIGHT)
 }
 void player::DrawPlayer()
 {
-	//if (dir == 0) {
+	if (dir == 0) {
+		al_draw_filled_circle(x + 32, y - 10, 7, al_map_rgb(255, 255, 255)); // white back circle
+
+		al_draw_filled_circle(x + 32, y - 13, 4, al_map_rgb(255, 0, 0));
+		al_draw_filled_triangle(x + 24, y - 9, x + 27, y - 16, x + 32, y - 14, al_map_rgb(255, 0, 0));
+		al_draw_line(x + 27, y - 15, x + 32, y - 15, al_map_rgb(255, 0, 0), 1);
+		al_draw_filled_circle(x + 32, y - 14, 1, al_map_rgb(255, 255, 255)); //white eye
+		al_draw_filled_circle(x + 29, y - 7, 1, al_map_rgb(255, 0, 0)); //red eye
+
 		al_draw_bitmap(image, x, y, 0);
-	/*}
+	}
 	else if (dir == 1) {
+		al_draw_filled_circle(x + 32, y + 74, 7, al_map_rgb(255, 255, 255)); // white back circle
+
+		al_draw_filled_circle(x + 32, y + 71, 4, al_map_rgb(255, 0, 0));
+		al_draw_filled_triangle(x + 24, y + 75, x + 27, y + 68, x + 32, y + 70, al_map_rgb(255, 0, 0));
+		al_draw_line(x + 27, y + 69, x + 32, y + 69, al_map_rgb(255, 0, 0), 1);
+		al_draw_filled_circle(x + 32, y + 70, 1, al_map_rgb(255, 255, 255)); //white eye
+		al_draw_filled_circle(x + 29, y + 77, 1, al_map_rgb(255, 0, 0)); //red eye
+
 		al_draw_bitmap(image, x, y, ALLEGRO_FLIP_HORIZONTAL);
 	}
 	else if (dir == 2) {
+		al_draw_filled_circle(x - 10, y + 32, 7, al_map_rgb(255, 255, 255)); // white back circle
+
+		al_draw_filled_circle(x - 13, y + 32, 4, al_map_rgb(255, 0, 0));
+		al_draw_filled_triangle(x - 9, y + 24, x - 16, y + 27, x - 14, y + 32, al_map_rgb(255, 0, 0));
+		al_draw_line(x - 15, y + 27, x - 17, y + 30, al_map_rgb(255, 0, 0), 1);
+		al_draw_filled_circle(x - 14, y + 32, 1, al_map_rgb(255, 255, 255)); //white eye
+		al_draw_filled_circle(x - 7, y + 29, 1, al_map_rgb(255, 0, 0)); //red eye
+
 		al_draw_bitmap(image, x, y, ALLEGRO_FLIP_HORIZONTAL);
 	}
 	else {
 		al_draw_bitmap(image, x, y, 0);
-	}*/
+	}
 }
 void player::MoveUp()
 {
