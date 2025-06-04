@@ -1,3 +1,5 @@
+//DT Nesimi
+
 #ifndef BADGUYH
 #define BADGUYH
 #include <allegro5\allegro.h>

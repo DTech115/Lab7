@@ -1,3 +1,5 @@
+//DT Nesimi
+
 #ifndef WEAPONH
 #define WEAPONH
 #include "BadGuy.h"

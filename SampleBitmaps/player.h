@@ -1,3 +1,4 @@
+//DT Nesimi
 #ifndef PLAYERH
 #define PLAYERH
 #include <allegro5\allegro.h>
